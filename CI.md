@@ -40,5 +40,11 @@ For Clang, configure a fresh build directory with -DCMAKE_C_COMPILER=clang.
 Tests are enabled by default; embedding consumers that do not need Python
 may configure with -DBUILD_TESTING=OFF.
 
-Workflow validation, GCC/Clang builds, and source-package checks passed locally.
-GitHub-hosted Ubuntu jobs require their first repository push for confirmation.
+The first [GitHub-hosted run](https://github.com/athanclark/sqlite-rational/actions/runs/37241059512)
+passed every job, including workflow linting, the GCC/Clang matrix, required tests,
+and independent source-archive builds. Subsequent pushes and pull requests run
+the same workflow.
+
+Cross-backend checks live in the independent rational-conformance project. Its CI
+builds this repository's upstream default branch alongside rational-map and pgmp,
+and can select explicit refs without adding sibling dependencies here.
